@@ -1,0 +1,837 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:id="@+id/harmLevelLinear"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="위해수준"
+            android:layout_weight="1"/>
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="harmLevel"
+            android:id="@+id/harmLevelTxt"
+            android:layout_weight="1" />
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:id="@+id/harmCauseLinear"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="위해원인"
+            android:layout_weight="1"
+            />
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="harmCause"
+            android:id="@+id/harmCauseTxt"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:id="@+id/harmFlawInfoLinear"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="위해 결함정보"
+            android:layout_weight="1"
+            />
+
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="harmFlawInfo"
+            android:id="@+id/harmFlawInfoTxt"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:id="@+id/recallActionLinear"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="리콜조치원인"
+            android:layout_weight="1"/>
+
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="recallAction"
+            android:id="@+id/recallActionTxt"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:id="@+id/recallMeansLinear"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="리콜방법"
+            android:layout_weight="1"/>
+
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="recallMeans"
+            android:id="@+id/recallMeansTxt"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:id="@+id/publicDateLinear"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="공표일자"
+            android:layout_weight="1"/>
+
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="publicDate"
+            android:id="@+id/publicDateTxt"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:id="@+id/makeTerm1Linear"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="제조기간1"
+            android:layout_weight="1"/>
+
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="makeTerm1"
+            android:id="@+id/makeTerm1Txt"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:id="@+id/makeTerm2Linear"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="제조기간2"
+            android:layout_weight="1"/>
+
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="makeTerm2"
+            android:id="@+id/makeTerm2Txt"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:id="@+id/sellTerm1Linear"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="판매기간1"
+            android:layout_weight="1"/>
+
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="sellTerm1"
+            android:id="@+id/sellTerm1Txt"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:id="@+id/sellTerm2Linear"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="판매기간2"
+            android:layout_weight="1"/>
+
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="sellTerm2"
+            android:id="@+id/sellTerm2Txt"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:id="@+id/actionTerm1Linear"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="조치기간1"
+            android:layout_weight="1"/>
+
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="actionTerm1"
+            android:id="@+id/actionTerm1Txt"
+            android:layout_weight="1" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:id="@+id/actionTerm2Linear"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="조치기간2"
+            android:layout_weight="1"/>
+
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="actionTerm2"
+            android:id="@+id/actionTerm2Txt"
+            android:layout_weight="1" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:id="@+id/makeAmountLinear"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="제조수량"
+            android:layout_weight="1"/>
+
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="makeAmount"
+            android:id="@+id/makeAmountTxt"
+            android:layout_weight="1" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:id="@+id/sellAmountLinear"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="판매수량"
+            android:layout_weight="1"/>
+
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="sellAmount"
+            android:id="@+id/sellAmountTxt"
+            android:layout_weight="1" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:id="@+id/recallActionVolLinear"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="리콜수량"
+            android:layout_weight="1"/>
+
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="recallActionVol"
+            android:id="@+id/recallActionVolTxt"
+            android:layout_weight="1" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:id="@+id/saleCompanyLinear"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="판매업체"
+            android:layout_weight="1"/>
+
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="saleCompany"
+            android:id="@+id/saleCompanyTxt"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:id="@+id/importCompanyLinear"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="수입업체"
+            android:layout_weight="1"/>
+
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="importCompany"
+            android:id="@+id/importCompanyTxt"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:id="@+id/linkURLLinear"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="이미지 링크"
+            android:layout_weight="1"/>
+
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="linkURL"
+            android:id="@+id/linkURLTxt"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:id="@+id/linkIDLinear"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="이미지 고유번호"
+            android:layout_weight="1"/>
+
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="linkID"
+            android:id="@+id/linkIDTxt"
+            android:layout_weight="1" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:id="@+id/closeCheckLinear"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="종결여부"
+            android:layout_weight="1"/>
+
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="closeCheck"
+            android:id="@+id/closeCheckTxt"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:id="@+id/productNameLinear"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="제품명"
+            android:layout_weight="1"/>
+
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="productName"
+            android:id="@+id/productNameTxt"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:id="@+id/trademarkLinear"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="상표"
+            android:layout_weight="1"/>
+
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="trademark"
+            android:id="@+id/trademarkTxt"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:id="@+id/modelLinear"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="모델명"
+            android:layout_weight="1"/>
+
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="model"
+            android:id="@+id/modelTxt"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:id="@+id/serialNumberLinear"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="일련번호"
+            android:layout_weight="1"/>
+
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="serialNumber"
+            android:id="@+id/serialNumberTxt"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:id="@+id/makingNationLinear"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="제조국"
+            android:layout_weight="1"/>
+
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="makingNation"
+            android:id="@+id/makingNationTxt"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:id="@+id/recallStateLinear"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="리콜 상태"
+            android:layout_weight="1"/>
+
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="recallState"
+            android:id="@+id/recallStateTxt"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:id="@+id/actionsLinear"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="조치사항"
+            android:layout_weight="1"/>
+
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="actions"
+            android:id="@+id/actionsTxt"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:id="@+id/productContentsLinear"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="제품상세내용"
+            android:layout_weight="1"/>
+
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="productContents"
+            android:id="@+id/productContentsTxt"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:id="@+id/recallAmountLinear"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="판매수량"
+            android:layout_weight="1"/>
+
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="recallAmount"
+            android:id="@+id/recallAmountTxt"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:id="@+id/harmContentsLinear"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="위해내용"
+            android:layout_weight="1"/>
+
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="harmContents"
+            android:id="@+id/harmContentsTxt"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:id="@+id/accidentExamLinear"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="사고사례"
+            android:layout_weight="1"/>
+
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="accidentExam"
+            android:id="@+id/accidentExamTxt"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:id="@+id/rc_req_NoLinear"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="리콜 제품 id"
+            android:layout_weight="1"/>
+
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="rc_req_No"
+            android:id="@+id/rc_req_NoTxt"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:id="@+id/recallNationTypeLinear"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="리콜형태"
+            android:layout_weight="1"/>
+
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="recallNationType"
+            android:id="@+id/recallNationTypeTxt"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:id="@+id/confirmUIDLinear"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="인증번호UID"
+            android:layout_weight="1"/>
+
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="confirmUID"
+            android:id="@+id/confirmUIDTxt"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:id="@+id/recallTypeLinear"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="리콜종류"
+            android:layout_weight="1"/>
+
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="recallType"
+            android:id="@+id/recallTypeTxt"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:id="@+id/companyNameLinear"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="제보사업자명"
+            android:layout_weight="1"/>
+
+
+        <TextView
+            style="@style/labelStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="companyName"
+            android:id="@+id/companyNameTxt"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+
+</LinearLayout>

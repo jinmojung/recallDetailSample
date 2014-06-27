@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pre-dex-items>
+
+    <item
+        dex="D:\android-studio\workspace\recallDetail\app\build\intermediates\pre-dexed\debug\classes-8827964e35c03df8a13015cac58168d5248ea5ef.jar"
+        jar="D:\android-studio\workspace\recallDetail\build\intermediates\exploded-aar\com.android.support\appcompat-v7\19.1.0\classes.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="3499ceba05ca1f6037c6a2fad73df8f636224a28"/>
+    <item
+        dex="D:\android-studio\workspace\recallDetail\app\build\intermediates\pre-dexed\debug\groovy-2.4.0-beta-1-grooid-9e5dc7bf7b59fad527838d681d247c76edecc0a5.jar"
+        jar="C:\Users\jinmo\.gradle\caches\modules-2\files-2.1\org.codehaus.groovy\groovy\2.4.0-beta-1\4cf51a7836ed3171ab9d22ffe398139965c535df\groovy-2.4.0-beta-1-grooid.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="4cf51a7836ed3171ab9d22ffe398139965c535df"/>
+    <item
+        dex="D:\android-studio\workspace\recallDetail\app\build\intermediates\pre-dexed\debug\support-v4-19.1.0-2ac5744b924c7a8cb77956015043d4c93d3cb6e3.jar"
+        jar="D:\android-studio\sdk\extras\android\m2repository\com\android\support\support-v4\19.1.0\support-v4-19.1.0.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67"/>
+    <item
+        dex="D:\android-studio\workspace\recallDetail\app\build\intermediates\pre-dexed\debug\android-async-http-1.4.4-9e713b4278822d616bd27970dc9a9b585d13bc64.jar"
+        jar="C:\Users\jinmo\.gradle\caches\modules-2\files-2.1\com.loopj.android\android-async-http\1.4.4\3bae85a076241828810bf8fbcc12e5891d5fc34c\android-async-http-1.4.4.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="3bae85a076241828810bf8fbcc12e5891d5fc34c"/>
+    <item
+        dex="D:\android-studio\workspace\recallDetail\app\build\intermediates\pre-dexed\debug\gson-2.2.4-2a1ac879c3588537d9c919e5ec49e848b8765c6f.jar"
+        jar="C:\Users\jinmo\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.2.4\a60a5e993c98c864010053cb901b7eab25306568\gson-2.2.4.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="a60a5e993c98c864010053cb901b7eab25306568"/>
+
+</pre-dex-items>
