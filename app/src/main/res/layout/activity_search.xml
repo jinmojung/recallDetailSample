@@ -4,16 +4,44 @@
     android:layout_height="fill_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <EditText
+    <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/modelQueryFields"
-        android:hint="출력 필드" />
+        android:id="@+id/showFields"
+        android:text="출력 필드" />
 
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="페이징 여부"
+        android:id="@+id/pagingEnable" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/pagingLayout">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/pageSize"
+            android:text="출력 페이지 사이즈" />
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center|bottom"
+        >
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="검색"
         android:id="@+id/searchBtn"
-        android:layout_gravity="center_horizontal" />
+        android:layout_marginBottom="10dp"/>
+
+    </LinearLayout>
 </LinearLayout>

@@ -5,11 +5,15 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Button
-import android.widget.EditText
+import android.widget.CompoundButton
+import android.widget.LinearLayout
 import android.widget.ListView
+import android.widget.Switch
+import android.widget.TextView
 import groovy.transform.CompileStatic
 import kr.codesolutions.common.Const
 import kr.codesolutions.vo.LabelValueVo
@@ -17,37 +21,56 @@ import kr.codesolutions.vo.LabelValueVo
 @CompileStatic
 public class SearchActivity extends BaseActivity {
 
-    EditText modelQueryFields;
+    TextView showFields;
+    Switch pagingEnable;
+    LinearLayout pagingLayout;
+    TextView mPageSize;
     Button searchBtn;
-    ListView listView;
-    AlertDialog.Builder builder;
+    ListView showFieldsBuilderListView;
+    AlertDialog.Builder showFieldsBuilder;
+    AlertDialog.Builder pageSizeBuilder;
 
-    private DialogInterface.OnClickListener mOnClickListener = new DialogInterface.OnClickListener() {
+    private DialogInterface.OnClickListener showFieldsBuilderOnClickListener = new DialogInterface.OnClickListener() {
         @Override
         public void onClick(DialogInterface dialog, int which) {
-            Log.d(Const.TAG+getClass().getName(),"mOnClickListener")
-            showValueCheckedList.clear()
+            Log.d(Const.TAG+getClass().getName(),"showFieldsBuilderOnClickListener")
+            showFieldsCheckedList.clear()
             showDialogCheckedItemInView()
             // hide dialog
             dialog.dismiss();
         }
     };
 
+    private DialogInterface.OnClickListener pageSizeBuilderOnClickListener = new DialogInterface.OnClickListener() {
+        @Override
+        public void onClick(DialogInterface dialog, int which) {
+            Log.d(Const.TAG+getClass().getName(),"pageSizeBuilderOnClickListener")
+            pageQuery.pageSize = pageQueryPageSizeList[which].toInteger()
+            showPageSize();
+            dialog.dismiss();
+        }
+
+    };
+
+    private showPageSize() {
+        mPageSize.setText("출력 페이지 사이즈=" + pageQuery.pageSize)
+    }
+
     private void showDialogCheckedItemInView() {
-        StringBuffer spinnerBuffer = new StringBuffer();
-        def checkedItemPositions = listView.getCheckItemIds()
-        def showValueCheckedList = mMyApplication.showValueCheckedList
+        StringBuffer stringBuffer = new StringBuffer();
+        def checkedItemPositions = showFieldsBuilderListView.getCheckItemIds()
+        def showValueCheckedList = mMyApplication.showFieldsCheckedList
         def modelLabelValueList = mMyApplication.modelLabelValueList
         checkedItemPositions.each { Long checked ->
             showValueCheckedList.add(checked.toInteger())
-            spinnerBuffer.append(modelLabelValueList.get(checked.toInteger()).label);
-            spinnerBuffer.append(", ");
+            stringBuffer.append(modelLabelValueList.get(checked.toInteger()).label);
+            stringBuffer.append(", ");
         }
         if (checkedItemPositions.length != 0) {
-            spinnerBuffer.setLength(spinnerBuffer.length() - 2);
-            modelQueryFields.setText("출력 필드=" + spinnerBuffer.toString());
+            stringBuffer.setLength(stringBuffer.length() - 2);
+            showFields.setText("출력 필드=" + stringBuffer.toString());
         } else {
-            modelQueryFields.setText("");
+            showFields.setText("");
         }
     }
 
@@ -56,40 +79,79 @@ public class SearchActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         Log.d(Const.TAG+getClass().getName(),"onCreate")
         setContentView(R.layout.activity_search);
-        listView = (ListView)getLayoutInflater().inflate(R.layout.alert_multiselect_list,null);
-        ArrayAdapter<LabelValueVo> adapter = new ArrayAdapter<LabelValueVo>(this,android.R.layout.simple_list_item_multiple_choice, modelLabelValueList);
-        listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
-        listView.setAdapter(adapter);
-        DialogInterface.OnClickListener click11 = {
-            Log.d(Const.TAG+getClass().getName(),"mOnClickListener")
-        } as DialogInterface.OnClickListener
-        builder = new AlertDialog.Builder(this).setTitle(R.string.app_name)
-                .setView(listView)
-                .setPositiveButton(android.R.string.ok,mOnClickListener)
-        builder.onCancelListener = {
-            Log.d(Const.TAG+getClass().getName(),"onCancelListener"+this.showValueCheckedList.size())
-        }
-        modelQueryFields = (EditText)findViewById(R.id.modelQueryFields);
-        searchBtn = (Button)findViewById(R.id.searchBtn);
-        modelQueryFields.onClickListener = {
-            ViewGroup listViewParent = (ViewGroup)this.listView.getParent();
+        Log.d(Const.TAG+getClass().getName(),"staryt setViews")
+        setViews()
+        Log.d(Const.TAG+getClass().getName(),"end setViews")
+        setBuilders()
+        Log.d(Const.TAG+getClass().getName(),"end setBuilders")
+        setListeners()
+        Log.d(Const.TAG+getClass().getName(),"end setListeners")
+        checkListViewFromCheckedList()
+        Log.d(Const.TAG+getClass().getName(),"end checkListViewFromCheckedList")
+        showDialogCheckedItemInView()
+        Log.d(Const.TAG+getClass().getName(),"end showDialogCheckedItemInView")
+        setViewFromPageQueryEnableData()
+        Log.d(Const.TAG+getClass().getName(),"end setViewFromPageQueryEnableData")
+        showPageSize();
+    }
+
+    private void setListeners() {
+        showFields.onClickListener = {
+            ViewGroup listViewParent = (ViewGroup)this.showFieldsBuilderListView.getParent();
             if(listViewParent != null){
-                listViewParent.removeView(this.listView);
+                listViewParent.removeView(this.showFieldsBuilderListView);
             }
-            this.listView.clearChoices()
+            this.showFieldsBuilderListView.clearChoices()
             checkListViewFromCheckedList()
-            this.builder.show();
+            this.showFieldsBuilder.show();
+        }
+        pagingEnable.onCheckedChangeListener = {CompoundButton buttonView, boolean isChecked->
+            this.pageQuery.enable = isChecked
+            setViewFromPageQueryEnableData()
+        } as CompoundButton.OnCheckedChangeListener
+        mPageSize.onClickListener = {
+            this.pageSizeBuilder.show();
         }
         searchBtn.onClickListener = {
             startActivity(new Intent(this, ResultActivity.class))
         }
-        checkListViewFromCheckedList()
-        showDialogCheckedItemInView()
+    }
+
+    private void setViewFromPageQueryEnableData() {
+        pagingEnable.checked = this.pageQuery.enable
+        if (this.pageQuery.enable) {
+            this.pagingLayout.visibility = View.VISIBLE
+        } else {
+            this.pagingLayout.visibility = View.GONE
+        }
+    }
+
+    private void setBuilders() {
+        showFieldsBuilderListView = (ListView)getLayoutInflater().inflate(R.layout.alert_multiselect_list,null);
+        ArrayAdapter<LabelValueVo> adapter = new ArrayAdapter<LabelValueVo>(this,android.R.layout.simple_list_item_multiple_choice, modelLabelValueList);
+        showFieldsBuilderListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+        showFieldsBuilderListView.setAdapter(adapter);
+        showFieldsBuilder = new AlertDialog.Builder(this).setTitle("출력필드 선택")
+                .setView(showFieldsBuilderListView)
+                .setPositiveButton(android.R.string.ok, showFieldsBuilderOnClickListener)
+        showFieldsBuilder.onCancelListener = {
+            //Log.d(Const.TAG + getClass().getName(), "onCancelListener" + this.showFieldsCheckedList.size())
+        }
+        pageSizeBuilder = new AlertDialog.Builder(this).setTitle("출력 페이지 사이즈 선택")
+                .setItems(pageQueryPageSizeList as CharSequence[],pageSizeBuilderOnClickListener)
+    }
+
+    private void setViews() {
+        showFields = (TextView) findViewById(R.id.showFields);
+        pagingEnable = (Switch) findViewById(R.id.pagingEnable);
+        pagingLayout = (LinearLayout) findViewById(R.id.pagingLayout);
+        mPageSize = (TextView) findViewById(R.id.pageSize);
+        searchBtn = (Button) findViewById(R.id.searchBtn);
     }
 
     private Iterable<Integer> checkListViewFromCheckedList() {
-        this.showValueCheckedList.each { checked ->
-            this.listView.setItemChecked(checked, true)
+        this.showFieldsCheckedList.each { checked ->
+            this.showFieldsBuilderListView.setItemChecked(checked, true)
         }
     }
 

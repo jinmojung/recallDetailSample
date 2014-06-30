@@ -6,12 +6,17 @@ import android.util.Log
 import groovy.transform.CompileStatic
 import kr.codesolutions.common.Const
 import kr.codesolutions.vo.LabelValueVo
-import kr.codesolutions.vo.MultiSelectVo
+import kr.codesolutions.vo.RequestModelQueryPageable
+import kr.codesolutions.vo.RequestModelQueryPageableSortOrders
 
 @CompileStatic
 public class MyApplication extends Application {
     List<LabelValueVo> modelLabelValueList;
-    List<Integer> showValueCheckedList
+    List<String> pageQueryPageSizeList;
+    List<Integer> showFieldsCheckedList
+    RequestModelQueryPageable pageQuery
+    List pageQuerySortOrders
+    RequestModelQueryPageableSortOrders pageQuerySortOrder
 
     private void addModelLabelValueList(String value,String label) {
         LabelValueVo vo = new LabelValueVo();
@@ -66,10 +71,19 @@ public class MyApplication extends Application {
         addModelLabelValueList("confirmUID","인증번호UID");
         addModelLabelValueList("recallType","리콜종류");
         addModelLabelValueList("companyName","제보사업자명");
-        showValueCheckedList = new ArrayList<Integer>();
+        showFieldsCheckedList = new ArrayList<Integer>();
         modelLabelValueList.eachWithIndex {it, index ->
-            this.showValueCheckedList.add(index as Integer)
+            this.showFieldsCheckedList.add(index as Integer)
         }
+        pageQueryPageSizeList = new ArrayList<String>();
+        (1..10).each{
+            this.pageQueryPageSizeList.add(it.toString())
+        }
+        pageQuery = new RequestModelQueryPageable();
+        pageQuery.enable = true
+        pageQuery.pageSize = 10
+        pageQuerySortOrders = new ArrayList<RequestModelQueryPageableSortOrders>();
+        pageQuerySortOrder = new RequestModelQueryPageableSortOrders();
     }
 
     @Override

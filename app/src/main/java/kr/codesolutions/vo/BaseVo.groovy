@@ -3,24 +3,24 @@ package kr.codesolutions.vo
 import groovy.transform.CompileStatic;
 
 @CompileStatic
-public class BaseVo implements Serializable {
-    private long number;
-    private long size;
-    private long totalPages;
-    private long numberOfElements;
-    private long totalElements;
-    private boolean hasPreviousPage;
-    private boolean isFirstPage;
-    private boolean hasNextPage;
-    private boolean isLastPage;
-    private boolean hasContent;
-    private long beginPage;
-    private long endPage;
-    private long previousPage;
-    private long nextPage;
-    private long status;
-    private long pageNumber;
-    private long pageSize;
-    private boolean firstPage;
-    private boolean lastPage;
+public class BaseVo {
+    long number;
+    long size;
+    long totalPages;
+    long numberOfElements;
+    long totalElements;
+    boolean hasPreviousPage;
+    boolean isFirstPage;
+    boolean hasNextPage;
+    boolean isLastPage;
+    boolean hasContent;
+    long beginPage;
+    long endPage;
+    long previousPage;
+    long nextPage;
+    long status;
+    long pageNumber;
+    long pageSize;
+    boolean firstPage;
+    boolean lastPage;
 }

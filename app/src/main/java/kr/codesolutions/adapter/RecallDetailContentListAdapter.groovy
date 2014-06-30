@@ -29,7 +29,7 @@ public class RecallDetailContentListAdapter extends BaseAdapter {
     }
 
     public void setData(List<RecallDetailContent> recallDetailContentList) {
-        this.recallDetailContentList = recallDetailContentList;
+        this.recallDetailContentList.addAll(recallDetailContentList);
         this.notifyDataSetChanged();
     }
 
