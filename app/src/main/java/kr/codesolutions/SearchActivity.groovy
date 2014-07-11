@@ -27,6 +27,8 @@ public class SearchActivity extends BaseActivity {
     TextView mPageSize;
     Button searchBtn;
     ListView showFieldsBuilderListView;
+    Switch mSearchQueryEnable;
+    LinearLayout mSearchQueryLayout
     AlertDialog.Builder showFieldsBuilder;
     AlertDialog.Builder pageSizeBuilder;
 
@@ -91,6 +93,7 @@ public class SearchActivity extends BaseActivity {
         showDialogCheckedItemInView()
         Log.d(Const.TAG+getClass().getName(),"end showDialogCheckedItemInView")
         setViewFromPageQueryEnableData()
+        setViewFromSearchQueryEnableData()
         Log.d(Const.TAG+getClass().getName(),"end setViewFromPageQueryEnableData")
         showPageSize();
     }
@@ -109,6 +112,11 @@ public class SearchActivity extends BaseActivity {
             this.pageQuery.enable = isChecked
             setViewFromPageQueryEnableData()
         } as CompoundButton.OnCheckedChangeListener
+
+        mSearchQueryEnable.onCheckedChangeListener = {CompoundButton buttonView, boolean isChecked->
+            this.searchQueryEnable = isChecked
+            setViewFromSearchQueryEnableData()
+        } as CompoundButton.OnCheckedChangeListener
         mPageSize.onClickListener = {
             this.pageSizeBuilder.show();
         }
@@ -123,6 +131,15 @@ public class SearchActivity extends BaseActivity {
             this.pagingLayout.visibility = View.VISIBLE
         } else {
             this.pagingLayout.visibility = View.GONE
+        }
+    }
+
+    private void setViewFromSearchQueryEnableData() {
+        mSearchQueryEnable.checked = this.searchQueryEnable
+        if (this.searchQueryEnable) {
+            this.mSearchQueryLayout.visibility = View.VISIBLE
+        } else {
+            this.mSearchQueryLayout.visibility = View.GONE
         }
     }
 
@@ -147,6 +164,8 @@ public class SearchActivity extends BaseActivity {
         pagingLayout = (LinearLayout) findViewById(R.id.pagingLayout);
         mPageSize = (TextView) findViewById(R.id.pageSize);
         searchBtn = (Button) findViewById(R.id.searchBtn);
+        mSearchQueryEnable = (Switch) findViewById(R.id.searchQueryEnable);
+        mSearchQueryLayout = (LinearLayout) findViewById(R.id.searchQueryLayout);
     }
 
     private Iterable<Integer> checkListViewFromCheckedList() {

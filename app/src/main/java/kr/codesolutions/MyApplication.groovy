@@ -17,6 +17,9 @@ public class MyApplication extends Application {
     RequestModelQueryPageable pageQuery
     List pageQuerySortOrders
     RequestModelQueryPageableSortOrders pageQuerySortOrder
+    boolean searchQueryEnable
+    String searchQueryEqualField
+    String searchQueryEqualValue
 
     private void addModelLabelValueList(String value,String label) {
         LabelValueVo vo = new LabelValueVo();
@@ -72,9 +75,12 @@ public class MyApplication extends Application {
         addModelLabelValueList("recallType","리콜종류");
         addModelLabelValueList("companyName","제보사업자명");
         showFieldsCheckedList = new ArrayList<Integer>();
-        modelLabelValueList.eachWithIndex {it, index ->
-            this.showFieldsCheckedList.add(index as Integer)
+        modelLabelValueList.eachWithIndex {LabelValueVo it, index ->
+            if(it.value == 'model'){
+                this.showFieldsCheckedList.add(index as Integer)
+            }
         }
+
         pageQueryPageSizeList = new ArrayList<String>();
         (1..10).each{
             this.pageQueryPageSizeList.add(it.toString())
@@ -84,6 +90,7 @@ public class MyApplication extends Application {
         pageQuery.pageSize = 10
         pageQuerySortOrders = new ArrayList<RequestModelQueryPageableSortOrders>();
         pageQuerySortOrder = new RequestModelQueryPageableSortOrders();
+        searchQueryEnable = true
     }
 
     @Override

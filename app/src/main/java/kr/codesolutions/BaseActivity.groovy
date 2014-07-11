@@ -14,6 +14,7 @@ public class BaseActivity extends Activity {
     List<Integer> showFieldsCheckedList
     RequestModelQueryPageable pageQuery
     List<String> pageQueryPageSizeList
+    boolean searchQueryEnable
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +24,7 @@ public class BaseActivity extends Activity {
         showFieldsCheckedList = mMyApplication.showFieldsCheckedList
         pageQuery = mMyApplication.pageQuery
         pageQueryPageSizeList = mMyApplication.pageQueryPageSizeList
+        searchQueryEnable = mMyApplication.searchQueryEnable
     }
 
 }

@@ -14,7 +14,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="페이징 여부"
-        android:id="@+id/pagingEnable" />
+        android:id="@+id/pagingEnable"
+        android:checked="false" />
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
@@ -29,6 +30,34 @@
 
 
     </LinearLayout>
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="검색 조건 여부"
+        android:id="@+id/searchQueryEnable"
+        android:checked="false" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/searchQueryLayout">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/equalQuery"
+            android:text="equal 필드" />
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="equal 조건"/>
+
+
+    </LinearLayout>
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
